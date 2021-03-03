@@ -96,9 +96,9 @@ static const char* lept_parse_hex4(const char* p, unsigned* u) {
     for (index = 0; index < 4; ++index) {
         char ch = *p++;
         *u <<= 4;
-        if      (ch >= '0' && ch <= '9') *u |= ch - '0';
-        else if (ch >= 'a' && ch <= 'f') *u |= ch - 'a' + 10;
-        else if (ch >= 'A' && ch <= 'F') *u |= ch - 'A' + 10;
+        if      (ch >= '0' && ch <= '9')  *u |= ch - '0';
+        else if (ch >= 'A' && ch <= 'F')  *u |= ch - ('A' - 10);
+        else if (ch >= 'a' && ch <= 'f')  *u |= ch - ('a' - 10);
         else return NULL;
     }
     return p;
